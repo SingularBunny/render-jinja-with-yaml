@@ -25,8 +25,7 @@ def parse_args(args: List[str]):
     parser = argparse.ArgumentParser(
         description='Use a yaml-config to render Jinja2 templates')
     parser.add_argument('-y', '--yaml', type=argparse.FileType('r'), required=True, help='Path to the yaml-config')
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('-t', '--templates', nargs='+', help='Paths to the j2 files or folders')
+    parser.add_argument('-t', '--templates', nargs='+', help='Paths to the j2 files or folders')
     parser.add_argument('-o', '--output-folder', help='Path to output files')
     parser.add_argument('-e', '--file-type-extension', help='File Type to generate')
     return parser.parse_args(args)
